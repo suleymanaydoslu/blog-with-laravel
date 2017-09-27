@@ -10,12 +10,25 @@ Route::get('panel/login',[
     'uses' => 'AuthController@loginForPanel'
 ]);
 
+/** Panel Login Page - Post */
+Route::post('panel/login',[
+    'as' => 'panel.login.post',
+    'uses' => 'AuthController@loginForPanelPost'
+]);
+
+/** Panel Logout Page */
+Route::get('panel/logout',[
+    'as' => 'panel.logout',
+    'uses' => 'AuthController@logoutForPanel'
+]);
+
 /**
  * Including panel routes
  */
 Route::group([
-    'middleware' => ['panel'],
+    'middleware' => ['auth'],
     'prefix' => '',
+    'namespace' => 'Panel'
 ], function () {
     /**
      * Application Routes
