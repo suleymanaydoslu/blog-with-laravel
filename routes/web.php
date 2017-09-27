@@ -4,6 +4,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/** Panel Login Page */
 Route::get('panel/login',[
     'as' => 'panel.login',
     'uses' => 'AuthController@loginForPanel'
