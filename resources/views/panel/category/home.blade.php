@@ -39,7 +39,7 @@
           @if(count($categories))
             @foreach($categories as $category)
               <tr>
-                <td>{{$loop->index + 1}}</td>
+                <td>{{$category->id}}</td>
                 <td>{{$category->title}}</td>
                 <td>{{$category->slug}}</td>
                 <td>{{$category->created_at->format('d-M-Y H:i:s')}}</td>

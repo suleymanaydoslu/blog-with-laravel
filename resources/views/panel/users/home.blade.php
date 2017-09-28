@@ -5,8 +5,8 @@
   <div class="row">
     <div class="col-lg-12">
       <h3 class="page-header">
-        Post Management
-        <a href="{{route('panel.posts.create')}}" class="btn btn-success btn-md pull-right"><i class="fa fa-plus"></i> CREATE POST</a>
+        User Management
+        <a href="{{route('panel.users.create')}}" class="btn btn-success btn-md pull-right"><i class="fa fa-plus"></i> CREATE USER</a>
       </h3>
 
       <ol class="breadcrumb">
@@ -14,7 +14,7 @@
           <i class="fa fa-dashboard"></i> <a href="{{route('panel.dashboard')}}">Dashboard</a>
         </li>
         <li class="active">
-          <i class="fa fa-list"></i> <a href="{{route('panel.posts.index')}}">All Posts</a>
+          <i class="fa fa-user"></i> <a href="{{route('panel.users.index')}}">All Users</a>
         </li>
       </ol>
 
@@ -29,24 +29,24 @@
         <thead>
         <tr>
           <th>#</th>
-          <th>Title</th>
-          <th>Slug</th>
+          <th>First Name - Last Name</th>
+          <th>Email Adress</th>
           <th>Created At</th>
           <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        @if(count($posts))
-          @foreach($posts as $post)
+        @if(count($users))
+          @foreach($users as $user)
             <tr>
-              <td>{{$post->id}}</td>
-              <td>{{$post->title}}</td>
-              <td>{{$post->slug}}</td>
-              <td>{{$post->created_at->format('d-M-Y H:i:s')}}</td>
+              <td>{{$user->id}}</td>
+              <td>{{$user->full_name}}</td>
+              <td>{{$user->email}}</td>
+              <td>{{$user->created_at->format('d-M-Y H:i:s')}}</td>
               <td>
-                <a href="{{ route('panel.posts.edit', $post) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil fa-fw"></i> EDİT</a>
-                <a href="{{ route('panel.posts.show', $post) }}" class="btn btn-warning btn-sm"><i class="fa fa-search fa-fw"></i> SHOW</a>
-                <form action="{{ route('panel.posts.destroy',$post) }}" method="POST">
+                <a href="{{ route('panel.users.edit', $user) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil fa-fw"></i> EDİT</a>
+                <a href="{{ route('panel.users.show', $user) }}" class="btn btn-warning btn-sm"><i class="fa fa-search fa-fw"></i> SHOW</a>
+                <form action="{{ route('panel.users.destroy',$user) }}" method="POST">
                   {{ csrf_field() }}
                   {{ method_field('DELETE') }}
 
@@ -66,7 +66,7 @@
       </table>
 
       <div class="col-sm-12 text-center">
-        {{ $posts->links() }}
+        {{ $users->links() }}
       </div>
 
     </div>

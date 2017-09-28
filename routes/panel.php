@@ -9,3 +9,4 @@ Route::get('dashboard',['as' => 'panel.dashboard', 'uses' => 'HomeController@das
 
 Route::resource('posts','PostController',['as' => 'panel']);
 Route::resource('categories','CategoryController',['as' => 'panel']);
+Route::resource('users','UsersController',['as' => 'panel']);
