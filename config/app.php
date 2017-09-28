@@ -228,4 +228,5 @@ return [
 
     ],
 
+    'storage_path' => 'uploads/'
 ];

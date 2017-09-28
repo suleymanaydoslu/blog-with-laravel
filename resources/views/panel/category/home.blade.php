@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-lg-12">
       <h3 class="page-header">
-        Category
+        Categories
         <a href="{{route('panel.categories.create')}}" class="btn btn-success btn-md pull-right"><i class="fa fa-plus"></i> CREATE CATEGORY</a>
       </h3>
 

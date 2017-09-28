@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('content');
-            $table->string('cover_image');
+            $table->string('cover_image')->nullable();
             $table->boolean('status');
             $table->timestamps();
             $table->softDeletes();

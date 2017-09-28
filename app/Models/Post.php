@@ -16,4 +16,9 @@ class Post extends Model
         'cover_image',
         'status'
     ];
+
+    public function categories()
+    {
+        return $this->hasMany(BlogCategory::class);
+    }
 }
