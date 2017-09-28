@@ -27,7 +27,7 @@ Route::get('panel/logout',[
  */
 Route::group([
     'middleware' => ['auth'],
-    'prefix' => '',
+    'prefix' => 'panel',
     'namespace' => 'Panel'
 ], function () {
     /**

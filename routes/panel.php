@@ -3,4 +3,8 @@
  * Panel Routes
  */
 
-Route::get('panel/dashboard',['as' => 'panel.dashboard', 'uses' => 'HomeController@dashboard']);
+use Illuminate\Support\Facades\Route;
+
+Route::get('dashboard',['as' => 'panel.dashboard', 'uses' => 'HomeController@dashboard']);
+
+Route::resource('posts','PostController',['as' => 'panel']);

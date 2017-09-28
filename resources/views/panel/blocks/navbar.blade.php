@@ -32,6 +32,9 @@
             <li class="active">
                 <a href="{{ route('panel.dashboard') }}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
+            <li>
+                <a href="{{ route('panel.posts.index') }}"><i class="fa fa-fw fa-dashboard"></i> Posts</a>
+            </li>
         </ul>
     </div>
     <!-- /.navbar-collapse -->

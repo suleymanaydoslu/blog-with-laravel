@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Panel;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BasePanelController as PanelController;
 
-class HomeController extends Controller
+class HomeController extends PanelController
 {
     public function dashboard()
     {
