@@ -11,15 +11,18 @@
     <div class="col-lg-12">
       <h3 class="page-header">
         Category
+        <a href="{{route('panel.category.create')}}" class="btn btn-success btn-md pull-right"><i class="fa fa-plus"></i> CREATE CATEGORY</a>
       </h3>
+
       <ol class="breadcrumb">
         <li>
           <i class="fa fa-dashboard"></i> <a href="{{route('panel.dashboard')}}">Dashboard</a>
         </li>
         <li class="active">
-          <i class="fa fa-shopping-cart"></i> <a href="{{route('panel.category.index')}}">All Categories</a>
+          <i class="fa fa-list"></i> <a href="{{route('panel.category.index')}}">All Categories</a>
         </li>
       </ol>
+
     </div>
   </div>
   <!-- /.row -->

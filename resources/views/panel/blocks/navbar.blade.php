@@ -35,6 +35,9 @@
             <li>
                 <a href="{{ route('panel.posts.index') }}"><i class="fa fa-fw fa-dashboard"></i> Posts</a>
             </li>
+          <li>
+                <a href="{{ route('panel.category.index') }}"><i class="fa fa-fw fa-list"></i> Categories</a>
+            </li>
         </ul>
     </div>
     <!-- /.navbar-collapse -->

@@ -12,7 +12,7 @@
           <i class="fa fa-dashboard"></i> <a href="{{route('panel.dashboard')}}">Dashboard</a>
         </li>
         <li>
-          <i class="fa fa-shopping-cart"></i> <a href="{{route('panel.category.index')}}">All Categories</a>
+          <i class="fa fa-list"></i> <a href="{{route('panel.category.index')}}">All Categories</a>
         </li>
       </ol>
     </div>
