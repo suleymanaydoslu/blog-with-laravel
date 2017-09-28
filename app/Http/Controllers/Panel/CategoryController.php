@@ -90,11 +90,6 @@ class CategoryController extends BasePanelController
     public function update(UpdateRequest $request, Category $category)
     {
         $category->title = $request->get('title');
-        if($category->title != $request->get('title')){
-
-            $category->slug = str_slug($request->get('title'));
-        }
-
         $category->save();
 
         return redirect()->route('panel.categories.show',$category)->with('success', 'Updated succesfully');

@@ -18,6 +18,8 @@
     </div>
   </div>
 
+  @include('panel.blocks.session_messages')
+
   <div class="row">
     <div class="col-lg-12">
       <div class="panel panel-primary">
@@ -25,8 +27,10 @@
           Category Details
         </div>
         <div class="panel-body">
-          <p>Title : {{ $category->title }}</p>
-          <p>Created At : {{ $category->created_at->format('d-M-Y H:i:s') }}</p>
+          <p><strong>Title: </strong> {{ $category->title }}</p>
+          <p><strong>Slug: </strong> {{ $category->slug }}</p>
+          <p><strong>Created At: </strong> {{ $category->created_at->format('d-M-Y H:i:s') }}</p>
+          <p><strong>Updated At: </strong> {{ $category->updated_at->format('d-M-Y H:i:s') }}</p>
         </div>
       </div>
     </div>

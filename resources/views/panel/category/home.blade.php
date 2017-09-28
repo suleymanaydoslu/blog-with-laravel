@@ -45,6 +45,7 @@
                 <td>{{$category->created_at->format('d-M-Y H:i:s')}}</td>
                 <td>
                   <a href="{{ route('panel.categories.edit', $category) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil fa-fw"></i> EDİT</a>
+                  <a href="{{ route('panel.categories.show', $category) }}" class="btn btn-warning btn-sm"><i class="fa fa-search fa-fw"></i> SHOW</a>
                   <form action="{{ route('panel.categories.destroy',$category) }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
