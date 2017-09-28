@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Panel\Post;
+namespace App\Http\Requests\Panel\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
 

@@ -5,3 +5,5 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="{{ asset('panel/js/bootstrap.min.js') }}"></script>
+
+@yield('extra_js')

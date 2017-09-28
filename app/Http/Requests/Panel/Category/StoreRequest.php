@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Panel\Post;
+namespace App\Http\Requests\Panel\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ShowRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,14 @@ class ShowRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|unique:categories'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'Category Name'
         ];
     }
 }
