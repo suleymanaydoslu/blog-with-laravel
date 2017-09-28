@@ -29,7 +29,7 @@ class CategoryController extends BasePanelController
      */
     public function index(IndexRequest $request)
     {
-        $categories = $this->category->all();
+        $categories = $this->category->paginate(10);
         return $this->view('home', [
             'categories' => $categories
         ]);
@@ -50,14 +50,12 @@ class CategoryController extends BasePanelController
      */
     public function store(StoreRequest $request)
     {
-        $category = $this->category->create([
+        $this->category->create([
             'title' => $request->get('title'),
             'slug' => str_slug($request->get('title'))
         ]);
 
-        $category->save();
-
-        return redirect()->route('panel.category.index')->with('success', 'Created succesfully');
+        return redirect()->route('panel.categories.index')->with('success', 'Created succesfully');
     }
 
     /**
@@ -99,7 +97,7 @@ class CategoryController extends BasePanelController
 
         $category->save();
 
-        return redirect()->route('panel.category.show',$category)->with('success', 'Updated succesfully');
+        return redirect()->route('panel.categories.show',$category)->with('success', 'Updated succesfully');
     }
 
     /**
@@ -110,6 +108,6 @@ class CategoryController extends BasePanelController
     public function destroy(DeleteRequest $request, Category $category)
     {
         $category->delete();
-        return redirect()->route('panel.category.index')->with('success', 'Deleted succesfully');
+        return redirect()->route('panel.categories.index')->with('success', 'Deleted succesfully');
     }
 }

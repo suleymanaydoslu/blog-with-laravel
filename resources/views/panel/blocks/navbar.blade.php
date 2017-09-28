@@ -36,7 +36,7 @@
                 <a href="{{ route('panel.posts.index') }}"><i class="fa fa-fw fa-dashboard"></i> Posts</a>
             </li>
           <li>
-                <a href="{{ route('panel.category.index') }}"><i class="fa fa-fw fa-list"></i> Categories</a>
+                <a href="{{ route('panel.categories.index') }}"><i class="fa fa-fw fa-list"></i> Categories</a>
             </li>
         </ul>
     </div>

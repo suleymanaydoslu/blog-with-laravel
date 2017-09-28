@@ -1,17 +1,12 @@
 @extends('panel.layouts.master')
 
-@section('extra_css')
-  <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-@endsection
-
 @section('content')
 
-  <!-- Page Heading -->
   <div class="row">
     <div class="col-lg-12">
       <h3 class="page-header">
         Category
-        <a href="{{route('panel.category.create')}}" class="btn btn-success btn-md pull-right"><i class="fa fa-plus"></i> CREATE CATEGORY</a>
+        <a href="{{route('panel.categories.create')}}" class="btn btn-success btn-md pull-right"><i class="fa fa-plus"></i> CREATE CATEGORY</a>
       </h3>
 
       <ol class="breadcrumb">
@@ -19,27 +14,18 @@
           <i class="fa fa-dashboard"></i> <a href="{{route('panel.dashboard')}}">Dashboard</a>
         </li>
         <li class="active">
-          <i class="fa fa-list"></i> <a href="{{route('panel.category.index')}}">All Categories</a>
+          <i class="fa fa-list"></i> <a href="{{route('panel.categories.index')}}">All Categories</a>
         </li>
       </ol>
 
     </div>
   </div>
-  <!-- /.row -->
 
-  @if(Session::has('success'))
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="alert alert-success">
-          {{ Session::get('success') }}
-        </div>
-      </div>
-    </div>
-  @endif
+  @include('panel.blocks.session_messages')
 
   <div class="row">
     <div class="col-lg-12">
-      <table id="example" class="display" cellspacing="0" width="100%">
+      <table class="table table-responsive table-bordered">
         <thead>
           <tr>
             <th>#</th>
@@ -50,40 +36,38 @@
           </tr>
         </thead>
         <tbody>
-          @if($categories)
+          @if(count($categories))
             @foreach($categories as $category)
               <tr>
                 <td>{{$loop->index + 1}}</td>
                 <td>{{$category->title}}</td>
                 <td>{{$category->slug}}</td>
-                <td>{{$category->created_at}}</td>
+                <td>{{$category->created_at->format('d-M-Y H:i:s')}}</td>
                 <td>
-                  <a href="{{ route('panel.category.edit', $category) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil fa-fw"></i> EDİT</a>
-                  <form action="{{ route('panel.category.destroy',$category) }}" method="POST">
+                  <a href="{{ route('panel.categories.edit', $category) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil fa-fw"></i> EDİT</a>
+                  <form action="{{ route('panel.categories.destroy',$category) }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
 
-                    <button type="submit" class="btn btn-danger btn-sm">
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('are you sure?')">
                       <i class="fa fa-trash fa-fw"></i> DELETE
                     </button>
                   </form>
                 </td>
               </tr>
             @endforeach
+          @else
+            <tr>
+              <td colspan="5" class="text-center"><strong>there is no categories</strong></td>
+            </tr>
           @endif
         </tbody>
       </table>
+
+      <div class="col-sm-12 text-center">
+        {{ $categories->links() }}
+      </div>
+
     </div>
   </div>
-
-
-@endsection
-
-@section('extra_js')
-  <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      $('#example').DataTable();
-    });
-  </script>
 @endsection

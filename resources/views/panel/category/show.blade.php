@@ -2,7 +2,6 @@
 
 @section('content')
 
-  <!-- Page Heading -->
   <div class="row">
     <div class="col-lg-12">
       <h3 class="page-header">
@@ -13,12 +12,11 @@
           <i class="fa fa-dashboard"></i> <a href="{{route('panel.dashboard')}}">Dashboard</a>
         </li>
         <li class="active">
-          <i class="fa fa-list"></i> <a href="{{route('panel.category.index')}}">All Categories</a>
+          <i class="fa fa-list"></i> <a href="{{route('panel.categories.index')}}">All Categories</a>
         </li>
       </ol>
     </div>
   </div>
-  <!-- /.row -->
 
   <div class="row">
     <div class="col-lg-12">
