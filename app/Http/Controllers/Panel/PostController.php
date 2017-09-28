@@ -12,6 +12,7 @@ use App\Http\Requests\Panel\Post\UpdateRequest;
 use App\Models\BlogCategory;
 use App\Models\Post;
 use App\Models\Category;
+use function file_exists;
 use Illuminate\Http\Request;
 use App\Http\Controllers\BasePanelController as PanelController;
 use function unlink;
@@ -151,18 +152,37 @@ class PostController extends PanelController
 
         $update->cover_image = $this->storePicture($request,$post);
 
-        //$post->categories()->sync((array)$request->get('categories'));
+        if($request->has('categories')){
+
+            $post->categories()->delete();
+
+            /**  Saving categories  */
+            $categoryModels = collect();
+            collect((array)$request->get('categories'))->each(function ($category) use ($categoryModels, $post) {
+                $categoryModels->push($this->blogCategory->make([
+                    'post_id' => $post->id,
+                    'category_id' => $category,
+                ]));
+            });
+            $post->categories()->saveMany($categoryModels);
+        }
 
         $update->save();
 
         return redirect()->route('panel.posts.index')->with('success', 'Post updated successfully');
     }
 
+    /**
+     * @param DeleteRequest $request
+     * @param Post $post
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy(DeleteRequest $request, Post $post)
     {
         $post->categories()->delete();
-        if($post->cover_image)
+        if($post->cover_image && file_exists($post->cover_image))
             unlink($post->cover_image);
+
         $post->delete();
 
         return redirect()->route('panel.posts.index')->with('success', 'Post deleted successfully');
