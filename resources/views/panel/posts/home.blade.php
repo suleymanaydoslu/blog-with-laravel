@@ -7,7 +7,7 @@
       <div class="page-header">
         <ul class="list-inline">
           <li>
-            <strong>Post Management</strong>
+            <h3><strong>Post Management</strong></h3>
           </li>
           <li class="pull-right">
             <a href="{{route('panel.posts.archive')}}" class="btn btn-primary btn-sm"><i class="fa fa-cloud"></i> ARCHIVE</a>

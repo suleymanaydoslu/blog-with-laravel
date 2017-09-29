@@ -10,6 +10,7 @@ use App\Http\Requests\Panel\User\IndexRequest;
 use App\Http\Requests\Panel\User\ShowRequest;
 use App\Http\Requests\Panel\User\StoreRequest;
 use App\Http\Requests\Panel\User\UpdateRequest;
+use Illuminate\Http\Request;
 use App\Models\User;
 use function redirect;
 
@@ -115,5 +116,40 @@ class UsersController extends PanelController
         $user->delete();
         return redirect()->route('panel.users.index')->with('success','User deleted successfully');
 
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function archive(Request $request)
+    {
+        $users = $this->users->onlyTrashed()->paginate(10);
+        return $this->view('archive', ['users' => $users]);
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function restore(Request $request, $id)
+    {
+        User::withTrashed()->where('id','=', $id)->restore();
+
+        return redirect()->route('panel.users.index')->with('success', 'User restored successfully');
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function remove(Request $request, $id)
+    {
+        $user = User::withTrashed()->where('id','=', $id)->first();
+        $user->forceDelete();
+
+        return redirect()->route('panel.users.archive')->with('success', 'User removed successfully');
     }
 }

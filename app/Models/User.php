@@ -28,6 +28,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $dates = ['deleted_at'];
+
     /**
      * Returning full name of a user
      * @return string

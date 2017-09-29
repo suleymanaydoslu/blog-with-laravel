@@ -2,13 +2,20 @@
 
 @section('content')
 
+
   <div class="row">
     <div class="col-lg-12">
-      <h3 class="page-header">
-        Categories
-        <a href="{{route('panel.categories.create')}}" class="btn btn-success btn-md pull-right"><i class="fa fa-plus"></i> CREATE CATEGORY</a>
-      </h3>
-
+      <div class="page-header">
+        <ul class="list-inline">
+          <li>
+            <h3><strong>Category Management</strong></h3>
+          </li>
+          <li class="pull-right">
+            <a href="{{route('panel.categories.create')}}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> CREATE
+              POST</a>
+          </li>
+        </ul>
+      </div>
       <ol class="breadcrumb">
         <li>
           <i class="fa fa-dashboard"></i> <a href="{{route('panel.dashboard')}}">Dashboard</a>
