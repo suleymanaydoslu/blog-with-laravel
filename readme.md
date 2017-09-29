@@ -15,9 +15,6 @@ a title, description, cover image, post context, create and update dates, publis
 (draft or published), publisher and dates.
 - Categories ​​Module:​ Blog posts will have categories. This categories will be
 managed by admin with a specific are at panel.
-- Tags​​ Module​: Blog posts can have some tags or not. This module will not have a
-specific place to manage. This modules data will be produced during creating a blog
-post.
 - Newsletter ​​Module: ​Our guests can be enroll our newsletter module and get notified
 when a new post pusblished.
 - Comments​​ Module​: Our guests can write down comments to our blog posts. And
