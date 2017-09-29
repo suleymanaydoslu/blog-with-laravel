@@ -26,9 +26,4 @@ class Post extends Model
     {
         return $this->hasMany(BlogCategory::class);
     }
-
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
 }
