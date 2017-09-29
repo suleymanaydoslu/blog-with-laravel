@@ -48,6 +48,9 @@
       <li>
         <a href="{{ route('panel.users.index') }}"><i class="fa fa-fw fa-users"></i> Users</a>
       </li>
+      <li>
+        <a href="{{ route('home') }}"><i class="fa fa-fw fa-home"></i> Go To Blog</a>
+      </li>
     </ul>
   </div>
   <!-- /.navbar-collapse -->
