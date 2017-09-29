@@ -34,7 +34,7 @@
       <div class="row">
         <div class="col-lg-12">
           @if($post->categories)
-            <p>Category List</p>
+            <p><strong>Category List :</strong></p>
             @foreach($post->categories as $pc)
               <span class="label label-primary">{{$pc->category->title}}</span>
             @endforeach

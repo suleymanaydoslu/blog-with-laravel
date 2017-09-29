@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="page-header">
-        <h3>LATEST POSTS <small>recently posted items</small></h3>
+        <h3>ALL POSTS UNDER {{ strtoupper($category->title) }} CATEGORY <small>all posted items from past</small></h3>
       </div>
     </div>
 
@@ -19,14 +19,14 @@
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
               @if($post->cover_image)
-              <img src="{{asset($post->cover_image)}}" alt="...">
+                <img src="{{asset($post->cover_image)}}" class="img-responsive">
               @else
-                <img src="http://via.placeholder.com/100x100" alt="no-image">
+                <img src="http://via.placeholder.com/800x150" alt="no-image">
               @endif
               <div class="caption">
                 <h4>{{$post->title}}</h4>
                 <small>{{$post->created_at->format('d-M-Y H:i:s')}}</small>
-                <p><a href="{{route('readPost',$post->slug)}}" class="btn btn-primary btn-block" role="button"><i class="fa fa-search"></i> READ</a></p>
+                <p><a href="#" class="btn btn-primary btn-block" role="button">Button</a></p>
               </div>
             </div>
           </div>

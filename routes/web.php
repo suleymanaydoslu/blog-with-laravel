@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /** Homepage */
 Route::get('/',[
     'as' => 'home',
@@ -16,6 +18,12 @@ Route::get('/all-posts',[
 Route::get('/post/{id}',[
     'as' => 'readPost',
     'uses' => 'Web\\PostsController@readPost'
+]);
+
+/** Category Detail Page */
+Route::get('/category/{id}',[
+    'as' => 'categoryDetail',
+    'uses' => 'Web\\PostsController@categoryDetail'
 ]);
 
 /** Panel Login Page */

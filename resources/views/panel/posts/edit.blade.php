@@ -77,6 +77,13 @@
           </form>
         </div>
       </div>
+
+      <div class="alert alert-warning">
+        <p>
+          <i class="fa fa-warning fa-md"></i>
+          After you update category, "slug" will not be updated.Because of search engine indexes this can affect seo status bad.
+        </p>
+      </div>
     </div>
   </div>
 @endsection

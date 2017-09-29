@@ -11,6 +11,7 @@ use App\Http\Requests\Panel\Category\EditRequest;
 use App\Http\Requests\Panel\Category\StoreRequest;
 use App\Http\Requests\Panel\Category\UpdateRequest;
 use App\Http\Requests\Panel\Category\ShowRequest;
+use function turkish_slug;
 
 class CategoryController extends BasePanelController
 {
@@ -52,7 +53,7 @@ class CategoryController extends BasePanelController
     {
         $this->category->create([
             'title' => $request->get('title'),
-            'slug' => str_slug($request->get('title'))
+            'slug' => turkish_slug($request->get('title'))
         ]);
 
         return redirect()->route('panel.categories.index')->with('success', 'Created succesfully');

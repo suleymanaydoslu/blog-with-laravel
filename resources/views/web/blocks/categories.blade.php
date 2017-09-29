@@ -4,7 +4,7 @@
     <ul class="list-group">
       @if(count($categories))
         @foreach($categories as $category)
-          <li class="list-group-item">{{$category->title}}</li>
+          <li class="list-group-item"><a href="{{route('categoryDetail',$category->slug)}}">{{$category->title}}</a></li>
         @endforeach
       @else
         <li class="list-group-item">There is no category to show.</li>

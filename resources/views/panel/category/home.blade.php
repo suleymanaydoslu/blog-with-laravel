@@ -12,7 +12,7 @@
           </li>
           <li class="pull-right">
             <a href="{{route('panel.categories.create')}}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> CREATE
-              POST</a>
+              CATEGORY</a>
           </li>
         </ul>
       </div>

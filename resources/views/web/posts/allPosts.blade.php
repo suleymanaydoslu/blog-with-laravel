@@ -18,7 +18,11 @@
         @foreach($posts as $post)
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img src="{{asset($post->cover_image)}}" alt="...">
+              @if($post->cover_image)
+                <img src="{{asset($post->cover_image)}}" class="img-responsive">
+              @else
+                <img src="http://via.placeholder.com/800x150" alt="no-image">
+              @endif
               <div class="caption">
                 <h4>{{$post->title}}</h4>
                 <small>{{$post->created_at->format('d-M-Y H:i:s')}}</small>

@@ -15,6 +15,7 @@ use App\Models\Category;
 use function file_exists;
 use Illuminate\Http\Request;
 use App\Http\Controllers\BasePanelController as PanelController;
+use function turkish_slug;
 use function unlink;
 
 class PostController extends PanelController
@@ -63,7 +64,7 @@ class PostController extends PanelController
     {
         $post = $this->post->fill([
             'title' => $request->get('title'),
-            'slug' => str_slug($request->get('title')),
+            'slug' => turkish_slug($request->get('title')),
             'content' => $request->get('content'),
             'status' => $request->get('status'),
         ]);

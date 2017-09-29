@@ -36,4 +36,17 @@ class PostsController extends WebController
             'categories' => $categories
         ]);
     }
+
+    public function categoryDetail(Request $request, $slug)
+    {
+        $category = Category::query()->where('slug','=',$slug)
+            ->firstOrFail();
+        $categories = Category::all();
+
+        return $this->view('categoryDetail',[
+            'category' => $category,
+            'posts' => $category->posts,
+            'categories' => $categories
+        ]);
+    }
 }
