@@ -6,8 +6,12 @@
 <body>
   <div class="container">
     @yield('content')
+
+    @include('web.blocks.footer')
   </div>
 
   @include('web.blocks.scripts')
+
+
 </body>
 </html>

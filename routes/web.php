@@ -6,6 +6,18 @@ Route::get('/',[
     'uses' => 'Web\\HomeController@home'
 ]);
 
+/** All Posts Page */
+Route::get('/all-posts',[
+    'as' => 'allPosts',
+    'uses' => 'Web\\PostsController@allPosts'
+]);
+
+/** Post Read Page */
+Route::get('/post/{id}',[
+    'as' => 'readPost',
+    'uses' => 'Web\\PostsController@readPost'
+]);
+
 /** Panel Login Page */
 Route::get('panel/login',[
     'as' => 'panel.login',
