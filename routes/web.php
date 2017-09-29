@@ -1,8 +1,10 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/** Homepage */
+Route::get('/',[
+    'as' => 'home',
+    'uses' => 'Web\\HomeController@home'
+]);
 
 /** Panel Login Page */
 Route::get('panel/login',[

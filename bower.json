@@ -1,0 +1,21 @@
+{
+  "name": "blog-with-laravel",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Süleyman Aydoslu <suleymanaydoslu@hotmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/suleymanaydoslu/blog-with-laravel",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./public/assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
