@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\BaseWebController as WebController;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Newsletter;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -54,5 +55,24 @@ class HomeController extends WebController
         $comment->save();
 
         return redirect()->back()->with('success','Comment created successfully');
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function newsletterPost(Request $request)
+    {
+        $rules = [
+            'email' => 'required|unique:newsletters',
+        ];
+
+        $this->validate($request,$rules);
+
+        Newsletter::create($request->intersect([
+            'email'
+        ]));
+
+        return redirect()->back()->with('success','Joined newsletter successfully');
     }
 }

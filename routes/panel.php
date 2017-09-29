@@ -26,3 +26,6 @@ Route::get('comments/{comment}',['as' => 'panel.comments.show', 'uses' => 'Comme
 Route::get('comments/delete/{comment}',['as' => 'panel.comments.delete', 'uses' => 'CommentsController@delete']);
 Route::get('comments/active/{comment}',['as' => 'panel.comments.active', 'uses' => 'CommentsController@active']);
 Route::get('comments/passive/{comment}',['as' => 'panel.comments.passive', 'uses' => 'CommentsController@passive']);
+
+Route::get('newsletters',['as' => 'panel.newsletters.index', 'uses' => 'NewslettersController@index']);
+Route::get('newsletters/delete/{newsletter}',['as' => 'panel.newsletters.delete', 'uses' => 'NewslettersController@delete']);

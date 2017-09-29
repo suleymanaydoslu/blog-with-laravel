@@ -43,6 +43,9 @@
         <a href="{{ route('panel.comments.index') }}"><i class="fa fa-fw fa-comments"></i> Comments</a>
       </li>
       <li>
+        <a href="{{ route('panel.newsletters.index') }}"><i class="fa fa-fw fa-envelope"></i> Newsletters</a>
+      </li>
+      <li>
         <a href="{{ route('panel.users.index') }}"><i class="fa fa-fw fa-users"></i> Users</a>
       </li>
     </ul>

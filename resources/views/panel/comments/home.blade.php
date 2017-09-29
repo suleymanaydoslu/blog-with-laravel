@@ -31,8 +31,8 @@
         <thead>
         <tr>
           <th>#</th>
-          <th>Title</th>
-          <th>Slug</th>
+          <th>Name</th>
+          <th>Email</th>
           <th>Created At</th>
           <th>Actions</th>
         </tr>

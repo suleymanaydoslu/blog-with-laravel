@@ -50,6 +50,12 @@ Route::post('post-comment/{id}',[
     'uses' => 'Web\\HomeController@commentPost'
 ]);
 
+/** Newsletter joining */
+Route::post('join-newsletter',[
+    'as' => 'newsletter.post',
+    'uses' => 'Web\\HomeController@newsletterPost'
+]);
+
 /**
  * Including panel routes
  */
