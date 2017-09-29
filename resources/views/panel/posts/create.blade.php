@@ -32,12 +32,12 @@
 
             <div class="form-group">
               <label>Title</label>
-              <input type="text" class="form-control" name="title">
+              <input type="text" class="form-control" name="title" required>
             </div>
 
             <div class="form-group">
               <label>Content</label>
-              <textarea name="content" class="form-control"></textarea>
+              <textarea name="content" class="form-control" required></textarea>
             </div>
 
             <div class="form-group">
@@ -58,7 +58,7 @@
 
             <div class="form-group">
               <label>Status</label>
-              <select name="status" class="form-control">
+              <select name="status" class="form-control" required>
                 <option value="">Please Select</option>
                 <option value="1">Published</option>
                 <option value="0">Draft</option>

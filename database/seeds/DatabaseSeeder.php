@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'Süleyman',
             'last_name' => 'Aydoslu',
             'email' => 'admin@blog.app',
-            'password' => bcrypt('secret')
+            'password' => 'secret'
         ]);
 
         /**

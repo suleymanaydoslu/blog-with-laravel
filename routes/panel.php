@@ -6,6 +6,8 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard',['as' => 'panel.dashboard', 'uses' => 'HomeController@dashboard']);
+Route::get('profile',['as' => 'panel.profile', 'uses' => 'HomeController@profile']);
+Route::post('profile',['as' => 'panel.profile.update', 'uses' => 'HomeController@profileUpdate']);
 
 Route::get('posts/archive',['as' => 'panel.posts.archive', 'uses' => 'PostController@archive']);
 Route::get('posts/restore/{post}',['as' => 'panel.posts.restore', 'uses' => 'PostController@restore']);

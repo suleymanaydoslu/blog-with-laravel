@@ -36,7 +36,9 @@
       @endif
     </div>
 
-    @include('web.blocks.menu')
-    @include('web.blocks.categories')
+    <div class="col-sm-3">
+      @include('web.blocks.menu')
+      @include('web.blocks.categories')
+    </div>
   </div>
 @endsection

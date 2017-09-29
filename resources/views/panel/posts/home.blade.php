@@ -65,7 +65,7 @@
                     <i class="fa fa-trash fa-fw"></i> DELETE
                   </button>
                 </form>
-              </td>
+              </td>mmmm
             </tr>
           @endforeach
         @else

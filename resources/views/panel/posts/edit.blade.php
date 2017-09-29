@@ -32,12 +32,12 @@
             {{ method_field('PUT') }}
             <div class="form-group">
               <label>Title</label>
-              <input class="form-control" name="title" value="{{$post->title}}">
+              <input class="form-control" name="title" value="{{$post->title}}" required>
             </div>
 
             <div class="form-group">
               <label>Content</label>
-              <textarea name="content" class="form-control">{{$post->content}}</textarea>
+              <textarea name="content" class="form-control" required>{{$post->content}}</textarea>
             </div>
 
             <div class="form-group">
@@ -65,7 +65,7 @@
 
             <div class="form-group">
               <label>Status</label>
-              <select name="status" class="form-control">
+              <select name="status" class="form-control" required>
                 <option value="">Please Select</option>
                 <option value="1" {{ ($post->status == 1) ? "selected" : "" }}>Published</option>
                 <option value="0" {{ ($post->status == 0) ? "selected" : "" }}>Draft</option>
