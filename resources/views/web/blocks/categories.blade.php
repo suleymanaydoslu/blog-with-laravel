@@ -1,6 +1,6 @@
 <div class="col-sm-3">
   <div class="panel panel-primary">
-    <div class="panel-heading">ALL CATEGORIES</div>
+    <div class="panel-heading"><i class="fa fa-list"></i> ALL CATEGORIES</div>
     <ul class="list-group">
       @if(count($categories))
         @foreach($categories as $category)

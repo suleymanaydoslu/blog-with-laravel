@@ -14,9 +14,4 @@ class Category extends Model
         'title',
         'slug'
     ];
-
-    public function posts()
-    {
-        return $this->hasManyThrough( Post::class, BlogCategory::class,'category_id','id');
-    }
 }

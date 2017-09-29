@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\BaseWebController as WebController;
+use App\Models\BlogCategory;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -39,13 +40,13 @@ class PostsController extends WebController
 
     public function categoryDetail(Request $request, $slug)
     {
-        $category = Category::query()->where('slug','=',$slug)
-            ->firstOrFail();
+        $category = Category::query()->where('slug','=',$slug)->firstOrFail();
+        $posts = BlogCategory::query()->where('category_id','=',$category->id)->get();
         $categories = Category::all();
 
         return $this->view('categoryDetail',[
             'category' => $category,
-            'posts' => $category->posts,
+            'posts' => $posts,
             'categories' => $categories
         ]);
     }

@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="jumbotron">
-    <h3>SULEYMANAYDOSLU BLOG</h3>
+    <a href="{{route('home')}}"><h3><i class="fa fa-home"></i> SULEYMANAYDOSLU BLOG</h3></a>
     <p>In this blog, you can find my latest posts related web technologies</p>
   </div>
 
@@ -26,7 +26,7 @@
               <div class="caption">
                 <h4>{{$post->title}}</h4>
                 <small>{{$post->created_at->format('d-M-Y H:i:s')}}</small>
-                <p><a href="#" class="btn btn-primary btn-block" role="button">Button</a></p>
+                <p><a href="{{route('readPost',$post->slug)}}" class="btn btn-primary btn-block" role="button"><i class="fa fa-search"></i> READ</a></p>
               </div>
             </div>
           </div>
@@ -39,6 +39,8 @@
         {{ $posts->links() }}
         @endif
     </div>
+
+    @include('web.blocks.menu')
     @include('web.blocks.categories')
   </div>
 @endsection

@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="jumbotron">
-    <h3>SULEYMANAYDOSLU BLOG</h3>
+    <a href="{{route('home')}}"><h3><i class="fa fa-home"></i> SULEYMANAYDOSLU BLOG</h3></a>
     <p>In this blog, you can find my latest posts related web technologies</p>
   </div>
 
@@ -18,15 +18,15 @@
         @foreach($posts as $post)
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              @if($post->cover_image)
-                <img src="{{asset($post->cover_image)}}" class="img-responsive">
+              @if($post->post->cover_image)
+                <img src="{{asset($post->post->cover_image)}}" class="img-responsive">
               @else
                 <img src="http://via.placeholder.com/800x150" alt="no-image">
               @endif
               <div class="caption">
-                <h4>{{$post->title}}</h4>
-                <small>{{$post->created_at->format('d-M-Y H:i:s')}}</small>
-                <p><a href="#" class="btn btn-primary btn-block" role="button">Button</a></p>
+                <h4>{{$post->post->title}}</h4>
+                <small>{{$post->post->created_at->format('d-M-Y H:i:s')}}</small>
+                <p><a href="{{route('readPost',$post->post->slug)}}" class="btn btn-primary btn-block" role="button"><i class="fa fa-search"></i> READ</a></p>
               </div>
             </div>
           </div>
@@ -35,6 +35,8 @@
         <p>There is no post to show</p>
       @endif
     </div>
+
+    @include('web.blocks.menu')
     @include('web.blocks.categories')
   </div>
 @endsection

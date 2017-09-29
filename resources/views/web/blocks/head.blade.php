@@ -4,6 +4,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Blog</title>
 <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
   /* Custom page footer */
   .footer {

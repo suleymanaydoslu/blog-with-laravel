@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="jumbotron">
-    <h3>SULEYMANAYDOSLU BLOG</h3>
+    <a href="{{route('home')}}"><h3><i class="fa fa-home"></i> SULEYMANAYDOSLU BLOG</h3></a>
     <p>In this blog, you can find my latest posts related web technologies</p>
   </div>
 
@@ -43,6 +43,8 @@
       </div>
 
     </div>
+    @include('web.blocks.menu')
+    @include('web.blocks.menu')
     @include('web.blocks.categories')
   </div>
 @endsection
