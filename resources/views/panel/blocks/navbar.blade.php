@@ -17,7 +17,7 @@
           class="fa fa-user"></i> {{ Auth::user()->full_name  }} <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li>
-          <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+          <a href="{{route('panel.profile')}}"><i class="fa fa-fw fa-user"></i> Profile</a>
         </li>
         </li>
         <li class="divider"></li>
@@ -38,6 +38,9 @@
       </li>
       <li>
         <a href="{{ route('panel.categories.index') }}"><i class="fa fa-fw fa-list"></i> Categories</a>
+      </li>
+      <li>
+        <a href="{{ route('panel.comments.index') }}"><i class="fa fa-fw fa-comments"></i> Comments</a>
       </li>
       <li>
         <a href="{{ route('panel.users.index') }}"><i class="fa fa-fw fa-users"></i> Users</a>

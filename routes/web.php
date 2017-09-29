@@ -44,6 +44,12 @@ Route::get('panel/logout',[
     'uses' => 'AuthController@logoutForPanel'
 ]);
 
+/** Comment posting */
+Route::post('post-comment/{id}',[
+    'as' => 'comment.post',
+    'uses' => 'Web\\HomeController@commentPost'
+]);
+
 /**
  * Including panel routes
  */

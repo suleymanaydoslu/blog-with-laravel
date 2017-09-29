@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\BaseWebController as WebController;
 use App\Models\BlogCategory;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -31,10 +32,14 @@ class PostsController extends WebController
                             ->where('status','=',1)
                             ->firstOrFail();
         $categories = Category::all();
+        $comments = Comment::query()->where('post_id','=',$post->id)
+                                    ->where('status','=',1)
+                                    ->get();
 
         return $this->view('readPost',[
             'post' => $post,
-            'categories' => $categories
+            'categories' => $categories,
+            'comments' => $comments
         ]);
     }
 
