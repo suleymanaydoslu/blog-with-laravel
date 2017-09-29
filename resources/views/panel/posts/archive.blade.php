@@ -10,7 +10,7 @@
             <strong>Post Management</strong>
           </li>
           <li class="pull-right">
-            <a href="{{route('panel.posts.archive')}}" class="btn btn-primary btn-sm"><i class="fa fa-cloud"></i> ARCHIVE</a>
+            <a href="{{route('panel.posts.index')}}" class="btn btn-primary btn-sm"><i class="fa fa-list"></i> CURRENT</a>
           </li>
           <li class="pull-right">
             <a href="{{route('panel.posts.create')}}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> CREATE
@@ -40,7 +40,7 @@
           <th>#</th>
           <th>Title</th>
           <th>Slug</th>
-          <th>Created At</th>
+          <th>Deleted At</th>
           <th>Actions</th>
         </tr>
         </thead>
@@ -51,20 +51,13 @@
               <td>{{$post->id}}</td>
               <td>{{$post->title}}</td>
               <td>{{$post->slug}}</td>
-              <td>{{$post->created_at->format('d-M-Y H:i:s')}}</td>
+              <td>{{$post->deleted_at->format('d-M-Y H:i:s')}}</td>
               <td>
-                <a href="{{ route('panel.posts.edit', $post) }}" class="btn btn-info btn-sm"><i
-                    class="fa fa-pencil fa-fw"></i> EDİT</a>
-                <a href="{{ route('panel.posts.show', $post) }}" class="btn btn-warning btn-sm"><i
-                    class="fa fa-search fa-fw"></i> SHOW</a>
-                <form action="{{ route('panel.posts.destroy',$post) }}" method="POST">
-                  {{ csrf_field() }}
-                  {{ method_field('DELETE') }}
-
-                  <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('are you sure?')">
-                    <i class="fa fa-trash fa-fw"></i> DELETE
-                  </button>
-                </form>
+                <a href="{{ route('panel.posts.restore', $post) }}" class="btn btn-info btn-sm"><i
+                    class="fa fa-refresh fa-fw"></i> RESTORE</a>
+                <a href="{{ route('panel.posts.remove', $post) }}" class="btn btn-danger btn-sm"
+                   onclick="return confirm('are you sure?')"><i
+                    class="fa fa-trash fa-fw"></i> REMOVE</a>
               </td>
             </tr>
           @endforeach

@@ -179,12 +179,47 @@ class PostController extends PanelController
      */
     public function destroy(DeleteRequest $request, Post $post)
     {
+        $post->delete();
+
+        return redirect()->route('panel.posts.index')->with('success', 'Post deleted successfully');
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function archive(Request $request)
+    {
+        $posts = $this->post->onlyTrashed()->paginate(10);
+        return $this->view('archive', ['posts' => $posts]);
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function restore(Request $request, $id)
+    {
+        Post::withTrashed()->where('id','=', $id)->restore();
+
+        return redirect()->route('panel.posts.index')->with('success', 'Post restored successfully');
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function remove(Request $request, $id)
+    {
+        $post = Post::withTrashed()->where('id','=', $id)->first();
         $post->categories()->delete();
         if($post->cover_image && file_exists($post->cover_image))
             unlink($post->cover_image);
 
-        $post->delete();
+        $post->forceDelete();
 
-        return redirect()->route('panel.posts.index')->with('success', 'Post deleted successfully');
+        return redirect()->route('panel.posts.archive')->with('success', 'Post removed successfully');
     }
 }
